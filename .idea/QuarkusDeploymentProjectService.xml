@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="QuarkusDeploymentProjectService">
+    <option name="modules">
+      <map>
+        <entry key="prog-distribuida.app-authors.main">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1462221342" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="prog-distribuida.app-books.main">
+          <value>
+            <ModuleState>
+              <option name="hash" value="667590590" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
