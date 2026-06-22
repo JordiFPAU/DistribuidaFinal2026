@@ -25,7 +25,7 @@ services:
       --api.insecure=true
       --api.dashboard=true
       --providers.consulCatalog
-      --providers.consulCatalog.endpoint.adress=consul:8500
+      --providers.consulCatalog.endpoint.address=consul:8500
       --providers.consulCatalog.exposedByDefault=false
       --providers.consulCatalog.refreshInterval=5s
     ports:

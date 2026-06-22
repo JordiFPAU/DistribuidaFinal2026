@@ -46,6 +46,8 @@ dependencies {
     implementation("io.smallrye.stork:stork-service-discovery-consul")
 
     implementation("io.quarkus:quarkus-smallrye-fault-tolerance")
+    implementation("io.quarkus:quarkus-micrometer-registry-prometheus:3.36.3")
+
 }
 
 tasks.test {

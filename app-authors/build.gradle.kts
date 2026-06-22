@@ -35,6 +35,7 @@ dependencies {
 
     //FLYWAY
     implementation("io.quarkus:quarkus-flyway:3.35.2")
+    implementation("io.quarkus:quarkus-micrometer-registry-prometheus:3.36.3")
 
     runtimeOnly("org.flywaydb:flyway-database-postgresql:12.5.0")
 
@@ -47,6 +48,8 @@ dependencies {
     //Service Discovery
     implementation("io.quarkus:quarkus-smallrye-stork")
     implementation("io.smallrye.reactive:smallrye-mutiny-vertx-consul-client")
+
+
 }
 
 tasks.test {
