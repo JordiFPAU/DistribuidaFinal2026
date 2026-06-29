@@ -24,23 +24,31 @@ services:
     command: |
       --api.insecure=true
       --api.dashboard=true
+      --entryPoints.http.address=":80"
+      --entryPoints.traefik.address=":8080"
+      --entryPoints.metrics.address=":8082"
       --providers.consulCatalog
       --providers.consulCatalog.endpoint.address=consul:8500
       --providers.consulCatalog.exposedByDefault=false
       --providers.consulCatalog.refreshInterval=5s
-      #ports:
+      --metrics.prometheus=true 
+      --metrics.prometheus.entryPoint=metrics
+    ports:
       - 8888:8080
       - 8080:80
-    depends_on:
-      - consul
+      - 8082:8082
+    #depends_on:
+    #  - consul
   prometheus:
     image: prom/prometheus:latest
     volumes:
       - ./configs:/etc/prometheus
     ports:
       - 9090:9090
+    expose:
+      - 9000
   grafana:
-    image: grafana/grafana-oss:latest
+    image: grafana/grafana
     ports:
       - 3000:3000
   authors:
@@ -74,8 +82,8 @@ services:
       QUARKUS_HTTP_PORT: 8080
       QUARKUS_HOST: consul
       CONSUL_PORT: 8500
-    ports:
-      - 8080:8080
+    #ports:
+    #  - 8080:8080
     depends_on:
       - db-server
       - consul
