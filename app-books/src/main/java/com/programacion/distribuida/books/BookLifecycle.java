@@ -23,7 +23,7 @@ public class BookLifecycle {
     String consultHost;
 
     @Inject
-    @ConfigProperty(name = "consul.posrt", defaultValue = "8500")
+    @ConfigProperty(name = "consul.port", defaultValue = "8500")
     Integer consulPort;
 
     @Inject
