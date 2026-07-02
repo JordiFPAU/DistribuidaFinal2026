@@ -8,8 +8,13 @@ services:
       POSTGRES_DB: books-db
     volumes:
       - "c:/distribuida 2626/db:/var/lib/postgresql/data"
-    ports:
-      - 54321:5432
+    #ports:
+    #  - 54321:5432
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d books-db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
   consul:
     image: consul:1.15.4
     command: |
@@ -68,9 +73,7 @@ services:
     #  - 8070:8080
     expose:
       - 8080
-    depends_on:
-      - db-server
-      - consul
+
   books:
     build:
       context: ../../app-books
