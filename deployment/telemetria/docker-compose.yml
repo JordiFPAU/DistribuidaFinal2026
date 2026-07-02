@@ -63,8 +63,9 @@ services:
       QUARKUS_HTTP_PORT: 8080
       CONSUL_HOST: consul
       CONSUL_PORT: 8500
-    ports:
-      - 8070:8080
+
+    #ports:
+    #  - 8070:8080
     expose:
       - 8080
     depends_on:
@@ -98,5 +99,13 @@ services:
       SPRING_CLOUD_CONSUL_PORT: 8500
     depends_on:
       - consul
+  postgresql-exporter:
+    image: prometheuscommunity/postgres-exporter
+    environment:
+      DATA_SOURCE_URI: "db-server:5432/books-db?sslmode=disable"
+      DATA_SOURCE_USER: postgres
+      DATA_SOURCE_PASS: postgres
+    ports:
+      - 9187:9187
 volumes:
   postgres-data:
